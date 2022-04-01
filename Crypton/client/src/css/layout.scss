@@ -1,0 +1,324 @@
+@use 'node_modules/wt-frontend/build/global/theme' with (
+    $primary-color: #ffc800,
+    $background-color: rgb(64, 69, 78),//#d9d6cc,
+    $navbar-background-color: #353a44,//rgb(64, 69, 78),
+    $sidebar-background-color: #2b2e36,//#353a44,
+    $text-color: #262626,
+    $modal-background: rgb(64, 69, 78),
+    $modal-section-padding: 24px,
+    $modal-radius: 4px,
+    $modal-border: 1px solid rgb(87, 93, 105),
+    $modal-button-color: rgba(255,255,255, 0.7),
+    $modal-button-hover: #e9edf0,
+    $button-text-color: black,
+    // other variable changes here
+);
+
+@use 'node_modules/wt-frontend/build/global/wolfie' as *;
+@use 'node_modules/wt-frontend/build/global/components';
+
+#root {
+    height: 100vh;
+}
+
+html {
+    height: 100%;
+}
+
+/* ----------------------------- Top-Level Setup ---------------------------- */
+.container-primary {
+    width: 100%;
+    height: 100%;
+    padding: 0 0px;
+}
+
+.container-secondary {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.welcome-image{
+    width: 584px;
+    height: 490px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 50px;
+}
+
+.welcome-text{
+    padding-top: 50px;
+}
+
+.wallet-pannel-left{
+    width: 40%;
+    float: left;
+    display: inline;
+    height: 100%;
+}
+
+.wallet-pannel-right{
+    width: 60%;
+    float: left;
+    display: inline;
+    height: 100%;
+}
+
+.qrcode{
+    margin-left: 30%;
+    margin-right: auto;
+    margin-top: 5%;
+    width:50%;
+}
+
+.wallet-div{
+    width: 90%;
+    height: 90%;
+    margin: auto;
+}
+
+.wallet-header{
+    text-align: center;
+    font-size: 1.5vw;
+    font-weight: bold;
+    width: 50%;
+    height: 20%;
+    margin: auto;
+    display: block;
+}
+
+.wallet-main{
+    display: flex;
+    height: 600px;
+}
+
+#wallet-container{
+    padding: 20px;
+    width: 50%;
+    height: 20%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#gc-container{
+    padding: 20px;
+    width: 50%;
+    height: 20%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gc-header{
+    text-align: center;
+    font-size: 1.5vw;
+    font-weight: bold;
+    width: 50%;
+    height: 20%;
+    margin: auto;
+    display: block;
+}
+
+.gc-main{
+    display: flex;
+    height: 600px;
+}
+.gc-pannel-l{
+    display: inline;
+    width: 40%;
+    float:left;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 7%;
+}
+.gc-pannel-r{
+    float: right;
+    display: inline;
+    width: 40%;
+    margin-left: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.gc-button{
+    width:60%;
+    margin-top: 25%;
+    margin-left: 20%;
+}
+
+.req-main,.score-main{
+    padding-top: 7%;
+    padding-bottom: 7%;
+}
+
+.score-info, .play-button{
+    display: inline;
+    width: 50%;
+    float: left;
+}
+
+.req-info{
+    display: inline;
+    width: 24%;
+    float: left;
+}
+
+.req-acc,.req-dec{
+    display: inline;
+    width: 14%;
+    float: left;
+}
+
+.req-list{
+    width: 50%;
+    margin: auto;
+    margin-top: 2%;
+    height: 90%;
+    overflow-y: scroll;
+}
+
+.gc-back{
+    width: 50%;
+    height: 5%;
+    margin: auto;
+    margin-top: 0%;
+    display: block;
+}
+
+#wallet-balance{
+    margin-right: 5%;
+    margin-top: 5%;
+    width: 45%;
+    height: 6%;
+    display: inline;
+    float: left;
+}
+#wallet-trend-pos, #wallet-trend-neg{
+    margin-top: 2%;
+    width: 45%;
+    height: 6%;
+    display: inline;
+    float: left;
+}
+
+.line-graph{
+    margin-top: 15%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    width: 70%;
+}
+
+#wallet-button{
+    margin-top: 2%;
+    height: 6%;
+    margin-left: 5%;
+    width: 45%;
+    display: inline;
+    float: left;
+}
+
+#qr-button-l{
+    width: 60%;
+    padding: 1%;
+    height: 25%;
+    margin: auto;
+    margin-top: 5%;
+    display: block;
+}
+
+#qr-button{
+    width: 60%;
+    padding: 1%;
+    height: 15%;
+    margin: auto;
+    margin-top: 5%;
+    display: block;
+}
+
+
+
+.marketScreen{
+    display: flex;
+    flex-direction: column;
+    width: 66%;
+    height: 80vh;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.marketHeader{
+    height: 7vh;
+    width: 100%;
+}
+.marketMain{
+    height: auto;
+}
+.marketMainContents{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    height: 73vh;
+    color: #FFFFFF;
+    text-align: center;
+    text-anchor: middle;
+    //align-items: center;
+}
+.marketCoinSelect{
+    width: 25vh;
+    text-align: center;
+    font-size: 24px;
+}
+.marketGraph{
+    row-gap: 10px;
+    margin: 0 auto;
+    width: 90%;
+    height: 100vh;
+}
+.marketGraphContainer{
+    height: 60vh;
+}
+
+.profileScreen{
+    display: flex;
+    flex-direction: column;
+    width: 66%;
+    height: 80vh;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.profileHeader{
+    height: 7vh;
+    width: 100%;
+}
+.profileMain{
+    display: flex;
+    flex-direction: row;
+    column-gap: 25vw;
+    height: 73vh;
+    color: #FFFFFF;
+    text-align: center;
+    text-anchor: middle;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+.profileInfo{
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    text-align: center;
+    text-anchor: middle;
+}
+.profileCryptosHeld{}
+.profileCryptoList{}
+
+.profileFriends{
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    text-align: center;
+    text-anchor: middle;
+}
+.profileFriendsList{}
+.profileAddFriend{}

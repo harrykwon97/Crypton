@@ -1,0 +1,385 @@
+@use 'node_modules/wt-frontend/build/global/theme' with ( $primary-color: #DEF2F1, $background-color: #2B7A78, //#d9d6cc,
+$navbar-background-color: #3AAFA9, //rgb(64, 69, 78),
+$sidebar-background-color: #2b2e36, //#353a44,
+$text-color: #17252A, $modal-background: rgb(64, 69, 78), $modal-section-padding: 24px, $modal-radius: 4px, $modal-border: 1px solid rgb(87, 93, 105), $modal-button-color: rgba(255, 255, 255, 0.7), $modal-button-hover: #e9edf0, $button-text-color: black, // other variable changes here
+);
+@use 'node_modules/wt-frontend/build/global/wolfie' as *;
+@use 'node_modules/wt-frontend/build/global/components';
+:root {
+    --warm-white: #f9f7f1;
+    --warm-white-transparent: #f9f7f111;
+    --warmer-white: #f9f7dd;
+    --blue-slate: #2c3437;
+    --light-green: #99cc7d;
+    --lighter-green: #bdfc9b;
+    --light-orange: #f5bc75;
+    --light-blue: #8ed4f8;
+    --light-purple: #dbbdf9;
+    --light-pink: #fbb4d2;
+    --light-yellow: #e6db74;
+    --light-beige: #d9d6cc;
+    --light-gray: #e9edf0;
+    --bright-orange: #fca234;
+    --yellow-orange: #ffc800;
+    --hover-light: rgba(255, 255, 255, 0.7);
+    --deep-blue: rgb(64, 69, 78);
+    --deep-blue-lighter: rgb(87, 93, 105);
+    /* --deep-blue:  #282c34; */
+    --button-transparent: rgba(255, 255, 255, 0);
+    --deep-blue-darker: #353a44;
+    /* --deep-blue-darker:  #282c34; */
+    --blue-gray: #7e8084;
+    --darkblue-gray: #2b2e36;
+    --warm-black: #322d2d;
+    --button-color: #990054;
+    --button-hover-color:rgb(0, 169, 236);
+}
+
+html,
+body {
+    margin: 0;
+    font-family: 'Monaco', monospace;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: $background-color;
+}
+
+.qr-header{
+    background-color: $navbar-background-color;
+    color: $text-color;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.qr-main{
+    background-color: $primary-color;
+    border-width: 2px;
+    border-color: $navbar-background-color;
+    border-style: solid;
+    color: #262626;
+}
+
+.req-main,.score-main{
+    background-color: $sidebar-background-color;
+    color: $primary-color;
+    font-size: 1.5em;
+}
+
+.score-main:hover{
+    background-color: $primary-color;
+    color: $sidebar-background-color;
+}
+
+.req-main:hover{
+    background-color: $primary-color;
+    color: $sidebar-background-color;
+}
+
+.play-button{
+    background-color: #00a2ff;
+    color: $text-color;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.play-button:hover{
+    background-color: #0065a0;
+    cursor: pointer;
+}
+
+.play-button:active{
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+}
+
+.req-acc{
+    background-color: #03ca67;
+    color: $text-color;
+    border-radius: 10px;
+}
+
+.req-acc:hover{
+    background-color: #00ff80;
+    cursor: pointer;
+}
+
+.req-acc:active{
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+}
+
+.req-dec{
+    background-color: #940031;
+    color: $text-color;
+    border-radius: 10px;
+}
+
+.req-dec:hover{
+    background-color: #ce0045;
+    cursor: pointer;
+}
+
+.req-dec:active{
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+}
+
+.req-info,.req-acc,.req-dec,.score-info{
+    text-align: center;
+}
+
+.gc-back{
+    background-color: $sidebar-background-color;
+    color: $primary-color;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.gc-back:hover{
+    background-color: $primary-color;
+    color: $sidebar-background-color;
+    cursor: pointer;
+}
+
+.gc-back:active{
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+}
+
+.gc-pannel-l,.gc-pannel-r{
+    background-color: $background-color;
+}
+
+.gc-button{
+    background-color: $primary-color;
+    color: $sidebar-background-color;
+    text-align: center;
+    font-size: 2em;
+}
+
+.gc-button:hover{
+    background-color: $sidebar-background-color;
+    color: $primary-color;
+    cursor: pointer;
+}
+
+.gc-button:active
+{
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+}
+
+#gc-container{
+    color: $text-color;
+    background-color: $navbar-background-color;
+}
+
+.gc-main{
+    background-color: $navbar-background-color;
+}
+
+.gc-header{
+    background-color: $primary-color;
+}
+
+.req-list{
+    background-color: $background-color;
+}
+
+.wallet-div{
+    background-color: $primary-color;
+}
+
+.wallet-main{
+    background-color: $navbar-background-color;
+}
+
+.wallet-header{
+    background-color: $primary-color;
+}
+
+.wallet-pannel-left{
+    background-color: $primary-color;
+}
+
+.wallet-pannel-right{
+    background-color: $primary-color;
+}
+
+#wallet-container{
+    color: $text-color;
+    background-color: $navbar-background-color;
+}
+
+#wallet-button,#qr-button,#qr-button-l{
+    color: $text-color;
+    font-size: 1.5em;
+    background-color: $navbar-background-color;
+    text-align: center;
+}
+
+#wallet-button:hover,#qr-button:hover,#qr-button-l:hover{
+    background-color: $background-color;
+    color: $primary-color;
+    cursor: pointer;
+}
+
+#wallet-button:active,#qr-button:active,#qr-button-l:active{
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+}
+
+#wallet-balance{
+    font-size: 1.5em;
+    border-width: 2px;
+    border-style: solid;
+    border-color: $navbar-background-color;
+}
+
+#wallet-trend-pos{
+    font-size: 1.5em;
+    border-width: 2px;
+    border-style: solid;
+    border-color: $navbar-background-color;
+    color: rgb(0, 141, 42);
+}
+#wallet-trend-neg{
+    font-size: 1.5em;
+    border-width: 2px;
+    border-style: solid;
+    border-color: $navbar-background-color;
+    color: rgb(139, 2, 121);
+}
+
+.welcome-text {
+    text-align: center;
+    color: $text-color;
+}
+
+.navbar-options {
+    text-align: center;
+    color: $primary-color;
+    background-color: #00ff7f;
+    font-weight: 900;
+}
+
+.menu-outer {
+    height: 15%;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.table {
+    display: table;
+    /* Allow the centering to work */
+    margin-left: auto;
+    margin-right: auto;
+    background-color: $text-color;
+}
+
+ul.horizontal-list {
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    word-wrap: break-word;
+    word-break: break-all;
+    list-style: none;
+    background-color: $text-color;
+}
+
+ul.horizontal-list li {
+    display: inline;
+}
+
+input{
+    background-color: $navbar-background-color;
+    color: #262626;
+}
+
+
+.marketScreen{
+    background-color: $sidebar-background-color;
+}
+.marketHeader{
+    color: $text-color;
+    background-color: $primary-color;
+    font-size: 36px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.marketChart{
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: $background-color;
+    background-color: #262626;
+}
+
+.profileScreen{
+    background-color: #262626;
+}
+.profileHeader{
+    background-color: #8DC5D1;
+    color:#262626;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    text-anchor: middle;
+}
+.profileMain{
+    background-color: #262626;
+    font-size: 24px;
+}
+.profileInfo{
+    color: #8DC5D1;
+}
+.profileCryptosHeld{}
+.profileCryptoList{}
+.profileFriends{
+    color: #8DC5D1;
+}
+.profileFriendsList{}
+.profileAddFriend{}
+
+//Gaming Styles
+
+//Memory Game
+
+.mem-cell{
+    background-color: $primary-color;
+    color: $sidebar-background-color;
+    width: 100%;
+    height:100%;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+.mem-cell:hover{
+    background-color: $sidebar-background-color;
+    color: $primary-color;
+    cursor: pointer;
+}
+
+.mem-main{
+    width: 60%;
+    height: auto;
+    margin: auto;
+}
+.mem-grid{
+    display: grid;
+    background-color: #000;
+    grid-template-rows: repeat(3,1fr);
+    grid-template-columns: repeat(3,1fr);
+}
+
+.mem-score{
+    font-size: 3.5em;
+    text-align: center;
+    display: block;
+    margin: auto;
+}
